@@ -1,4 +1,5 @@
 import os
+import re
 
 from decouple import config
 from discord.ext import commands
@@ -10,9 +11,11 @@ class Mikakho_bot(commands.Bot):
         self.load_cogs()
 
     def load_cogs(self):
-        for filename in os.listdir("./Cogs"):
-            if filename.endswith(".py"):
-                self.load_extension(f"Cogs.{filename[:-3]}")
+        for subdir, dirs, files in os.walk("./Cogs"):
+            for filename in files:
+                if filename.endswith(".py"):
+                    directory = re.sub("(?:(\W|(?:php|html)))", ".", subdir)
+                    self.load_extension(f"{directory[2:]}.{filename[:-3]}")
 
 
 Bot = Mikakho_bot(command_prefix=config("COMMAND_PREFIX", default="-"), self_bot=False)
