@@ -28,7 +28,7 @@ class Settings(commands.Bot):
         self._profile_img = img_url
 
 
-class Mikakho_bot(Settings):
+class GatoQQ(Settings):
     def __init__(self, command_prefix, self_bot):
         super().__init__(command_prefix=command_prefix, self_bot=self_bot)
         self.load_cogs()
@@ -41,5 +41,5 @@ class Mikakho_bot(Settings):
                     self.load_extension(f"{directory[2:]}.{filename[:-3]}")
 
 
-Bot = Mikakho_bot(command_prefix=config("COMMAND_PREFIX", default="-"), self_bot=False)
+Bot = GatoQQ(command_prefix=config("COMMAND_PREFIX", default="-"), self_bot=False)
 Bot.run(config("BOT_TOKEN"))
