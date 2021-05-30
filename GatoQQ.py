@@ -8,7 +8,7 @@ from discord.ext import commands
 class Settings(commands.Bot):
     def __init__(self, command_prefix, self_bot):
         self._name = "GatoQQ"
-        self._profile_img = "https://pbs.twimg.com/profile_images/1189898699629060096/6XkNuOMK_400x400.jpg"
+        self._profile_img = "./static/gatoQQ.png"
         super().__init__(command_prefix=command_prefix, self_bot=self_bot)
 
     @property
